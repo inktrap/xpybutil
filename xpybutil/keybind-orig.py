@@ -179,7 +179,7 @@ def get_keyboard_mapping_unchecked():
 
     return conn.core.GetKeyboardMappingUnchecked(mn, mx - mn + 1)
 
-def get_keysym(keycode, col=0, kbmap=None, mn=None, mx=None):
+def get_keysym(keycode, col=0, kbmap=None):
     """
     Get the keysym associated with a particular keycode in the current X
     environment. Although we get a list of keysyms from X in
@@ -205,13 +205,12 @@ def get_keysym(keycode, col=0, kbmap=None, mn=None, mx=None):
                 Unless you know what you're doing, just use 0.
     :type col: int
     :param kbmap: The keyboard mapping to use.
-    :type kbmap: xcb.xproto.GetKeyboardMappingReply
+    :type kbmap: xcb.xproto.GetKeyboardMapingReply
     """
     if kbmap is None:
         kbmap = __kbmap
 
-    if mn is None or mx is None:
-        mn, mx = get_min_max_keycode()
+    mn, mx = get_min_max_keycode()
     per = kbmap.keysyms_per_keycode
     ind = (keycode - mn) * per + col
 
@@ -239,10 +238,9 @@ def get_keycode(keysym):
     """
     mn, mx = get_min_max_keycode()
     cols = __kbmap.keysyms_per_keycode
-    # check column 0 first
-    for j in range(0, cols):
-        for i in range(mn, mx + 1):
-            ks = get_keysym(i, col=j, mn=mn, mx=mx)
+    for i in range(mn, mx + 1):
+        for j in range(0, cols):
+            ks = get_keysym(i, col=j)
             if ks == keysym:
                 return i
 
@@ -449,9 +447,8 @@ def update_keyboard_mapping(e):
         changes = {}
         debug("Minmaxkeycode: (%i, %i)" % get_min_max_keycode())
         # return
-        mn, mx = get_min_max_keycode()
-        for kc in range(mn, mx):
-            knew = get_keysym(kc, kbmap=newmap, mn=mn, mx=mx)
+        for kc in range(*get_min_max_keycode()):
+            knew = get_keysym(kc, kbmap=newmap)
             oldkc = get_keycode(knew)
 
             debug("kc: %s" % kc)
