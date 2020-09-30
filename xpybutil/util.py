@@ -109,7 +109,7 @@ def get_property(window, atom):
     :type atom: int OR str
     :rtype: xcb.xproto.GetPropertyCookie
     """
-    stringtype = str if sys.version_info[0] >= 3 else basestring
+    stringtype = str if sys.version_info[0] >= 3 else str
     if isinstance(atom, stringtype):
         atom = get_atom(atom)
     return conn.core.GetProperty(False, window, atom,
@@ -130,7 +130,7 @@ def get_property_unchecked(window, atom):
     :type atom: int OR str
     :rtype: xcb.xproto.GetPropertyCookie
     """
-    stringtype = str if sys.version_info[0] >= 3 else basestring
+    stringtype = str if sys.version_info[0] >= 3 else str
     if isinstance(atom, stringtype):
         atom = get_atom(atom)
     return conn.core.GetPropertyUnchecked(False, window, atom,
@@ -160,7 +160,7 @@ def build_atom_cache(atoms):
         if isinstance(__atom_cache[atom], AtomCookie):
             __atom_cache[atom] = __atom_cache[atom].reply()
 
-    __atom_nm_cache = dict((v, k) for k, v in __atom_cache.items())
+    __atom_nm_cache = dict((v, k) for k, v in list(__atom_cache.items()))
 
 def get_atom(atom_name, only_if_exists=False):
     """

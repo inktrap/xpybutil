@@ -16,7 +16,7 @@ __queue = deque()
 __callbacks = defaultdict(list)
 EM = xproto.EventMask
 
-stringtype = str if sys.version_info[0] >= 3 else basestring
+stringtype = str if sys.version_info[0] >= 3 else str
 
 class Event(object):
     KeyPressEvent = 2

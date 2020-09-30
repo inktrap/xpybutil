@@ -76,7 +76,7 @@ def bind_key(event_type, wid, key_string, cb):
     key = (wid, mods, kc)
 
     if not kc:
-        print >> sys.stderr, 'Could not find a keycode for %s' % key_string
+        print('Could not find a keycode for %s' % key_string, file=sys.stderr)
         return False
 
     if not __keygrabs[key] and not grab_key(wid, mods, kc):
@@ -475,7 +475,7 @@ def __regrab(changes):
     :type changes: dict
     :rtype: void
     """
-    for wid, mods, kc in __keybinds.keys():
+    for wid, mods, kc in list(__keybinds.keys()):
         if kc in changes:
             ungrab_key(wid, mods, kc)
             grab_key(wid, mods, changes[kc])

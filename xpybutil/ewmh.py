@@ -403,7 +403,7 @@ class DesktopViewportCookie(util.PropertyCookie):
             return None
 
         ret = []
-        for i in xrange(0, len(v), 2):
+        for i in range(0, len(v), 2):
             ret.append({
                 'x': v[i],
                 'y': v[i + 1]
@@ -690,7 +690,7 @@ class WorkareaCookie(util.PropertyCookie):
             return None
 
         ret = []
-        for i in xrange(0, len(v), 4):
+        for i in range(0, len(v), 4):
             ret.append({
                 'x': v[i],
                 'y': v[i + 1],

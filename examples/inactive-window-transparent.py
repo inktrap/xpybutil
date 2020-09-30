@@ -37,9 +37,9 @@ def cb_property_notify(e):
     if aname == '_NET_ACTIVE_WINDOW':
         update_window_opacity();
     elif aname == '_NET_CLIENT_LIST':
-        clients = filter(client_is_normal, ewmh.get_client_list().reply())
+        clients = list(filter(client_is_normal, ewmh.get_client_list().reply()))
 
-clients = filter(client_is_normal, ewmh.get_client_list().reply())
+clients = list(filter(client_is_normal, ewmh.get_client_list().reply()))
 update_window_opacity()
 
 window.listen(xpybutil.root, 'PropertyChange')

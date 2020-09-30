@@ -88,7 +88,7 @@ def monitor_rects(monitors):
                     continue
                 log.append(key)
 
-                if struts and not all([v == 0 for v in struts.itervalues()]):
+                if struts and not all([v == 0 for v in struts.values()]):
                     if struts['left'] or struts['right']:
                         if struts['left']:
                             x += cw

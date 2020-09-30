@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 import sys
 
 from setuptools import setup
@@ -9,8 +9,8 @@ except:
     print('')
     print('xpybutil requires the X Python Binding')
     print('See: http://cgit.freedesktop.org/xcb/xpyb/')
-    print('More options: xpyb-ng:', 'https://github.com/dequis/xpyb-ng',
-          'and xcffib:', 'https://github.com/tych0/xcffib')
+    print(('More options: xpyb-ng:', 'https://github.com/dequis/xpyb-ng',
+          'and xcffib:', 'https://github.com/tych0/xcffib'))
     sys.exit(1)
 
 setup(
