@@ -84,7 +84,10 @@ def get_parent_window(window):
     :return: Parent window identifier of 'window'.
     :rtype: int
     """
-    return conn.core.QueryTree(window).reply().parent
+    parent_window = conn.core.QueryTree(window).reply().parent
+    assert isinstance(parent_window, int)
+    return parent_window
+    # return conn.core.QueryTree(window).reply().parent
 
 def get_geometry(window, window_manager=None):
     """
@@ -104,9 +107,13 @@ def get_geometry(window, window_manager=None):
 
     if window_manager is WindowManagers.KWin:
         p = get_parent_window(window)
-        return __get_geometry(get_parent_window(p))
+        geom = __get_geometry(get_parent_window(p))
+        # return __get_geometry(get_parent_window(p))
     else:
-        return __get_geometry(get_parent_window(window))
+        geom = __get_geometry(get_parent_window(window))
+        # return __get_geometry(get_parent_window(window))
+    debug("Geom xpybutil: %s" % str(geom))
+    return geom
 
 def moveresize(win, x=None, y=None, w=None, h=None, window_manager=None):
     """
@@ -140,9 +147,9 @@ def moveresize(win, x=None, y=None, w=None, h=None, window_manager=None):
 
     # sometimes these are floats, but xcffib only accepts ints
     # could this be the case because "/" changed?
+    debug("Xpybutil window moveresize to int conversion encountered these types:")
     for i in [x, y, w, h]:
-        debug(i)
-        debug(type(i))
+        debug("%s: %s" % (i, type(i)))
     x = int(x)
     y = int(y)
     w = int(w)

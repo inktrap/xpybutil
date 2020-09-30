@@ -14,12 +14,13 @@ from xpybutil.compat import xproto
 
 from xpybutil import conn, root, event
 from xpybutil.keysymdef import keysyms, keysym_strings
+from xpybutil.debug import debug
 
 __kbmap = None
 __keysmods = None
 
 __keybinds = defaultdict(list)
-__keygrabs = defaultdict(int) # Key grab key -> number of grabs
+__keygrabs = defaultdict(int)  # Key grab key -> number of grabs
 
 EM = xproto.EventMask
 GM = xproto.GrabMode
@@ -425,27 +426,54 @@ def update_keyboard_mapping(e):
     :type e: xcb.xproto.MappingNotifyEvent
     :rtype: void
     """
+
+    debug("Entering update_keyboard_mapping")
+
     global __kbmap, __keysmods
 
     newmap = get_keyboard_mapping().reply()
 
+    debug("Got keyboard mapping")
+
     if e is None:
+        debug("e is None")
         __kbmap = newmap
         __keysmods = get_keys_to_mods()
         return
 
+    debug("Did some stuff")
+
     if e.request == xproto.Mapping.Keyboard:
+        debug("If")
         changes = {}
+        debug("Minmaxkeycode: (%i, %i)" % get_min_max_keycode())
+        return
         for kc in range(*get_min_max_keycode()):
+            debug("kc: %s" % kc)
+
             knew = get_keysym(kc, kbmap=newmap)
+            debug("knew: %s" % knew)
+
             oldkc = get_keycode(knew)
+            debug("oldkc: %s" % oldkc)
+
+            # kc == oldkc
+            # debug("Debugging types: (%s, %s)" % (type(kc), type(oldkc)))
             if oldkc != kc:
+                debug("Changing keycode changes[%s] = %s" % (oldkc, kc))
                 changes[oldkc] = kc
 
+        debug("finished range mapping")
         __kbmap = newmap
+        debug("regrab")
         __regrab(changes)
     elif e.request == xproto.Mapping.Modifier:
+        debug("Elif")
         __keysmods = get_keys_to_mods()
+    else:
+        debug("Else")
+
+    debug("Leaving update_keyboard_mapping")
 
 def __run_keybind_callbacks(e):
     """

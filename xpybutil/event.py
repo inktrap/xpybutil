@@ -11,6 +11,7 @@ import traceback
 from xpybutil.compat import xcb_Exception, xproto
 
 from xpybutil import conn, root, util
+from xpybutil.debug import debug
 
 __queue = deque()
 __callbacks = defaultdict(list)
@@ -145,6 +146,7 @@ def main():
 
                 key = (e.__class__, w)
                 for cb in __callbacks.get(key, []):
+                    debug("Callback: %s" % cb.__name__)
                     cb(e)
     except xcb_Exception:
         traceback.print_exc()
