@@ -1,5 +1,8 @@
 Entering update_keyboard_mapping
 Got keyboard mapping
+e is None
+Entering update_keyboard_mapping
+Got keyboard mapping
 If
 Minmaxkeycode: (8, 255)
 kc: 8
@@ -127,8 +130,7 @@ knew: 228
 oldkc: 48
 kc: 49
 knew: 94
-oldkc: 48
-Changing keycode changes[48] = 49
+oldkc: 49
 kc: 50
 knew: 65505
 oldkc: 50
@@ -365,8 +367,7 @@ knew: 65469
 oldkc: 125
 kc: 126
 knew: 177
-oldkc: 18
-Changing keycode changes[18] = 126
+oldkc: 126
 kc: 127
 knew: 65299
 oldkc: 127
@@ -557,12 +558,10 @@ knew: 269025145
 oldkc: 186
 kc: 187
 knew: 40
-oldkc: 17
-Changing keycode changes[17] = 187
+oldkc: 187
 kc: 188
 knew: 41
-oldkc: 18
-Changing keycode changes[18] = 188
+oldkc: 188
 kc: 189
 knew: 269025128
 oldkc: 189
@@ -634,8 +633,7 @@ oldkc: 172
 Changing keycode changes[172] = 208
 kc: 209
 knew: 269025073
-oldkc: 172
-Changing keycode changes[172] = 209
+oldkc: 209
 kc: 210
 knew: 269025091
 oldkc: 210
@@ -790,63 +788,65 @@ oldkc: 254
 finished range mapping
 regrab
 Leaving update_keyboard_mapping
-         276386821 function calls (273648645 primitive calls) in 154.322 seconds
+         456556 function calls (452556 primitive calls) in 0.262 seconds
 
    Ordered by: standard name
 
    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-        1    0.000    0.000  154.322  154.322 <string>:1(<module>)
- 36623106   32.924    0.000   48.883    0.000 __init__.py:108(unpack)
+        1    0.000    0.000    0.262    0.262 <string>:1(<module>)
+    53502    0.048    0.000    0.075    0.000 __init__.py:108(unpack)
         2    0.000    0.000    0.000    0.000 __init__.py:119(cast)
-   342273    0.238    0.000    0.962    0.000 __init__.py:137(__init__)
-   342273    0.471    0.000    0.471    0.000 __init__.py:141(_resize)
- 40045826   11.487    0.000   11.487    0.000 __init__.py:293(__init__)
+      501    0.000    0.000    0.002    0.000 __init__.py:137(__init__)
+      501    0.001    0.000    0.001    0.000 __init__.py:141(_resize)
+    58502    0.017    0.000    0.017    0.000 __init__.py:293(__init__)
         1    0.000    0.000    0.000    0.000 __init__.py:326(__init__)
         1    0.000    0.000    0.000    0.000 __init__.py:331(reply)
         1    0.000    0.000    0.000    0.000 __init__.py:363(send_request)
-3764993/1026817   27.326    0.000  143.114    0.000 __init__.py:412(__init__)
-   170886    0.044    0.000    0.044    0.000 __init__.py:445(__getitem__)
-   684549    0.814    0.000    0.814    0.000 __init__.py:554(invalid)
-   342274    0.582    0.000  150.815    0.000 __init__.py:566(wrapper)
-   342272    0.887    0.000  149.419    0.000 __init__.py:576(get_setup)
+5501/1501    0.042    0.000    0.217    0.000 __init__.py:412(__init__)
+    25320    0.003    0.000    0.003    0.000 __init__.py:445(__getitem__)
+     1005    0.001    0.000    0.001    0.000 __init__.py:554(invalid)
+      502    0.001    0.000    0.230    0.000 __init__.py:566(wrapper)
+      500    0.001    0.000    0.227    0.000 __init__.py:576(get_setup)
         1    0.000    0.000    0.000    0.000 __init__.py:643(_process_error)
         1    0.000    0.000    0.000    0.000 __init__.py:650(wait_for_reply)
-   684544    0.358    0.000    0.358    0.000 __init__.py:68(type_pad)
+     1000    0.001    0.000    0.001    0.000 __init__.py:68(type_pad)
         1    0.000    0.000    0.000    0.000 __init__.py:696(send_request)
         1    0.000    0.000    0.000    0.000 __init__.py:711(__init__)
         1    0.000    0.000    0.000    0.000 __init__.py:732(__init__)
-   342273    0.254    0.000    0.725    0.000 __init__.py:90(__init__)
-   684544    0.884    0.000    1.819    0.000 __init__.py:97(pad)
-      792    0.002    0.000    0.010    0.000 debug.py:5(debug)
-   171136    3.026    0.000  153.879    0.001 keybind.py:146(get_min_max_keycode)
+      501    0.000    0.000    0.001    0.000 __init__.py:90(__init__)
+     1000    0.001    0.000    0.003    0.000 __init__.py:97(pad)
+      787    0.001    0.000    0.005    0.000 debug.py:5(debug)
+        1    0.000    0.000    0.000    0.000 keybind.py:11(__init__)
+      250    0.005    0.000    0.234    0.001 keybind.py:146(get_min_max_keycode)
         1    0.000    0.000    0.001    0.001 keybind.py:160(get_keyboard_mapping)
-   170886    0.245    0.000  153.941    0.001 keybind.py:182(get_keysym)
-      247    0.142    0.001  154.076    0.624 keybind.py:229(get_keycode)
-        1    0.003    0.003  154.322  154.322 keybind.py:416(update_keyboard_mapping)
-        1    0.000    0.000    0.000    0.000 keybind.py:500(__regrab)
-        1    0.000    0.000    0.000    0.000 keybind_prof.py:11(__init__)
- 30804480   39.268    0.000   91.784    0.000 xproto.py:116(__init__)
-  2395904    4.541    0.000  125.586    0.000 xproto.py:140(__init__)
-   342272    0.981    0.000  130.094    0.000 xproto.py:192(__init__)
+    25320    0.011    0.000    0.015    0.000 keybind.py:182(get_keysym)
+      247    0.007    0.000    0.252    0.001 keybind.py:230(get_keycode)
+        1    0.001    0.001    0.262    0.262 keybind.py:418(update_keyboard_mapping)
+        1    0.000    0.000    0.000    0.000 keybind.py:503(__regrab)
+    45000    0.059    0.000    0.138    0.000 xproto.py:116(__init__)
+     3500    0.007    0.000    0.190    0.000 xproto.py:140(__init__)
+      500    0.001    0.000    0.197    0.000 xproto.py:192(__init__)
         1    0.000    0.000    0.000    0.000 xproto.py:2354(__init__)
-   342272    1.729    0.000  147.569    0.000 xproto.py:303(__init__)
+      500    0.003    0.000    0.224    0.000 xproto.py:303(__init__)
         1    0.000    0.000    0.000    0.000 xproto.py:3209(GetKeyboardMapping)
-  2395904    2.889    0.000    7.041    0.000 xproto.py:89(__init__)
- 36623106    6.450    0.000    6.450    0.000 {built-in method _struct.calcsize}
+     3500    0.004    0.000    0.011    0.000 xproto.py:89(__init__)
+    53502    0.012    0.000    0.012    0.000 {built-in method _struct.calcsize}
         1    0.000    0.000    0.000    0.000 {built-in method _struct.pack}
- 36623106    9.510    0.000    9.510    0.000 {built-in method _struct.unpack_from}
-        1    0.000    0.000  154.322  154.322 {built-in method builtins.exec}
-   684544    0.374    0.000    0.374    0.000 {built-in method builtins.hasattr}
- 41072643    4.939    0.000    4.939    0.000 {built-in method builtins.isinstance}
-   684545    0.124    0.000    0.124    0.000 {built-in method builtins.issubclass}
-  3764996    0.500    0.000    0.500    0.000 {built-in method builtins.len}
-      792    0.007    0.000    0.007    0.000 {built-in method builtins.print}
- 35938560    3.323    0.000    3.323    0.000 {method 'append' of 'list' objects}
+    53502    0.014    0.000    0.014    0.000 {built-in method _struct.unpack_from}
+        1    0.000    0.000    0.262    0.262 {built-in method builtins.exec}
+     1000    0.001    0.000    0.001    0.000 {built-in method builtins.hasattr}
+    60003    0.007    0.000    0.007    0.000 {built-in method builtins.isinstance}
+     1001    0.000    0.000    0.000    0.000 {built-in method builtins.issubclass}
+     5504    0.001    0.000    0.001    0.000 {built-in method builtins.len}
+      787    0.001    0.000    0.001    0.000 {built-in method builtins.print}
+    52500    0.006    0.000    0.006    0.000 {method 'append' of 'list' objects}
         3    0.000    0.000    0.000    0.000 {method 'cast' of '_cffi_backend.FFI' objects}
         1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
-      792    0.001    0.000    0.001    0.000 {method 'flush' of '_io.TextIOWrapper' objects}
+      787    0.003    0.000    0.003    0.000 {method 'flush' of '_io.TextIOWrapper' objects}
         1    0.000    0.000    0.000    0.000 {method 'gc' of '_cffi_backend.FFI' objects}
         1    0.000    0.000    0.000    0.000 {method 'getvalue' of '_io.BytesIO' objects}
         1    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
         4    0.000    0.000    0.000    0.000 {method 'new' of '_cffi_backend.FFI' objects}
         1    0.000    0.000    0.000    0.000 {method 'write' of '_io.BytesIO' objects}
+
+
