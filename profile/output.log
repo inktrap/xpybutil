@@ -1,0 +1,855 @@
+Entering update_keyboard_mapping
+Got keyboard mapping
+e is None
+Entering update_keyboard_mapping
+Got keyboard mapping
+If
+Minmaxkeycode: (8, 255)
+kc: 8
+knew: 0
+oldkc: 8
+kc: 9
+knew: 65307
+oldkc: 9
+kc: 10
+knew: 49
+oldkc: 10
+kc: 11
+knew: 50
+oldkc: 11
+kc: 12
+knew: 51
+oldkc: 12
+kc: 13
+knew: 52
+oldkc: 13
+kc: 14
+knew: 53
+oldkc: 14
+kc: 15
+knew: 54
+oldkc: 15
+kc: 16
+knew: 55
+oldkc: 16
+kc: 17
+knew: 56
+oldkc: 17
+kc: 18
+knew: 57
+oldkc: 18
+kc: 19
+knew: 48
+oldkc: 19
+kc: 20
+knew: 223
+oldkc: 20
+kc: 21
+knew: 180
+oldkc: 21
+kc: 22
+knew: 65288
+oldkc: 22
+kc: 23
+knew: 65289
+oldkc: 23
+kc: 24
+knew: 113
+oldkc: 24
+kc: 25
+knew: 119
+oldkc: 25
+kc: 26
+knew: 101
+oldkc: 26
+kc: 27
+knew: 114
+oldkc: 27
+kc: 28
+knew: 116
+oldkc: 28
+kc: 29
+knew: 122
+oldkc: 29
+kc: 30
+knew: 117
+oldkc: 30
+kc: 31
+knew: 105
+oldkc: 31
+kc: 32
+knew: 111
+oldkc: 32
+kc: 33
+knew: 112
+oldkc: 33
+kc: 34
+knew: 252
+oldkc: 34
+kc: 35
+knew: 43
+oldkc: 35
+kc: 36
+knew: 65293
+oldkc: 36
+kc: 37
+knew: 65507
+oldkc: 37
+kc: 38
+knew: 97
+oldkc: 38
+kc: 39
+knew: 115
+oldkc: 39
+kc: 40
+knew: 100
+oldkc: 40
+kc: 41
+knew: 102
+oldkc: 41
+kc: 42
+knew: 103
+oldkc: 42
+kc: 43
+knew: 104
+oldkc: 43
+kc: 44
+knew: 106
+oldkc: 44
+kc: 45
+knew: 107
+oldkc: 45
+kc: 46
+knew: 108
+oldkc: 46
+kc: 47
+knew: 246
+oldkc: 47
+kc: 48
+knew: 228
+oldkc: 48
+kc: 49
+knew: 94
+oldkc: 48
+Changing keycode changes[48] = 49
+kc: 50
+knew: 65505
+oldkc: 50
+kc: 51
+knew: 35
+oldkc: 51
+kc: 52
+knew: 121
+oldkc: 52
+kc: 53
+knew: 120
+oldkc: 53
+kc: 54
+knew: 99
+oldkc: 54
+kc: 55
+knew: 118
+oldkc: 55
+kc: 56
+knew: 98
+oldkc: 56
+kc: 57
+knew: 110
+oldkc: 57
+kc: 58
+knew: 109
+oldkc: 58
+kc: 59
+knew: 44
+oldkc: 59
+kc: 60
+knew: 46
+oldkc: 60
+kc: 61
+knew: 45
+oldkc: 61
+kc: 62
+knew: 65506
+oldkc: 62
+kc: 63
+knew: 65450
+oldkc: 63
+kc: 64
+knew: 65513
+oldkc: 64
+kc: 65
+knew: 32
+oldkc: 65
+kc: 66
+knew: 65307
+oldkc: 9
+Changing keycode changes[9] = 66
+kc: 67
+knew: 65470
+oldkc: 67
+kc: 68
+knew: 65471
+oldkc: 68
+kc: 69
+knew: 65472
+oldkc: 69
+kc: 70
+knew: 65473
+oldkc: 70
+kc: 71
+knew: 65474
+oldkc: 71
+kc: 72
+knew: 65475
+oldkc: 72
+kc: 73
+knew: 65476
+oldkc: 73
+kc: 74
+knew: 65477
+oldkc: 74
+kc: 75
+knew: 65478
+oldkc: 75
+kc: 76
+knew: 65479
+oldkc: 76
+kc: 77
+knew: 65407
+oldkc: 77
+kc: 78
+knew: 65300
+oldkc: 78
+kc: 79
+knew: 65429
+oldkc: 79
+kc: 80
+knew: 65431
+oldkc: 80
+kc: 81
+knew: 65434
+oldkc: 81
+kc: 82
+knew: 65453
+oldkc: 82
+kc: 83
+knew: 65430
+oldkc: 83
+kc: 84
+knew: 65437
+oldkc: 84
+kc: 85
+knew: 65432
+oldkc: 85
+kc: 86
+knew: 65451
+oldkc: 86
+kc: 87
+knew: 65436
+oldkc: 87
+kc: 88
+knew: 65433
+oldkc: 88
+kc: 89
+knew: 65435
+oldkc: 89
+kc: 90
+knew: 65438
+oldkc: 90
+kc: 91
+knew: 65439
+oldkc: 91
+kc: 92
+knew: 65027
+oldkc: 92
+kc: 93
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 93
+kc: 94
+knew: 60
+oldkc: 94
+kc: 95
+knew: 65480
+oldkc: 95
+kc: 96
+knew: 65481
+oldkc: 96
+kc: 97
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 97
+kc: 98
+knew: 65318
+oldkc: 98
+kc: 99
+knew: 65317
+oldkc: 99
+kc: 100
+knew: 65315
+oldkc: 100
+kc: 101
+knew: 65319
+oldkc: 101
+kc: 102
+knew: 65314
+oldkc: 102
+kc: 103
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 103
+kc: 104
+knew: 65421
+oldkc: 104
+kc: 105
+knew: 65508
+oldkc: 105
+kc: 106
+knew: 65455
+oldkc: 106
+kc: 107
+knew: 65377
+oldkc: 107
+kc: 108
+knew: 65027
+oldkc: 92
+Changing keycode changes[92] = 108
+kc: 109
+knew: 65290
+oldkc: 109
+kc: 110
+knew: 65360
+oldkc: 110
+kc: 111
+knew: 65362
+oldkc: 111
+kc: 112
+knew: 65365
+oldkc: 112
+kc: 113
+knew: 65361
+oldkc: 113
+kc: 114
+knew: 65363
+oldkc: 114
+kc: 115
+knew: 65367
+oldkc: 115
+kc: 116
+knew: 65364
+oldkc: 116
+kc: 117
+knew: 65366
+oldkc: 117
+kc: 118
+knew: 65379
+oldkc: 118
+kc: 119
+knew: 65535
+oldkc: 119
+kc: 120
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 120
+kc: 121
+knew: 269025042
+oldkc: 121
+kc: 122
+knew: 269025041
+oldkc: 122
+kc: 123
+knew: 269025043
+oldkc: 123
+kc: 124
+knew: 269025066
+oldkc: 124
+kc: 125
+knew: 65469
+oldkc: 125
+kc: 126
+knew: 177
+oldkc: 18
+Changing keycode changes[18] = 126
+kc: 127
+knew: 65299
+oldkc: 127
+kc: 128
+knew: 269025098
+oldkc: 128
+kc: 129
+knew: 65454
+oldkc: 129
+kc: 130
+knew: 65329
+oldkc: 130
+kc: 131
+knew: 65332
+oldkc: 131
+kc: 132
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 132
+kc: 133
+knew: 65312
+oldkc: 133
+kc: 134
+knew: 65516
+oldkc: 134
+kc: 135
+knew: 65383
+oldkc: 135
+kc: 136
+knew: 65385
+oldkc: 136
+kc: 137
+knew: 65382
+oldkc: 137
+kc: 138
+knew: 268828528
+oldkc: 138
+kc: 139
+knew: 65381
+oldkc: 139
+kc: 140
+knew: 268828529
+oldkc: 140
+kc: 141
+knew: 269025111
+oldkc: 141
+kc: 142
+knew: 269025131
+oldkc: 142
+kc: 143
+knew: 269025133
+oldkc: 143
+kc: 144
+knew: 65384
+oldkc: 144
+kc: 145
+knew: 269025112
+oldkc: 145
+kc: 146
+knew: 65386
+oldkc: 146
+kc: 147
+knew: 269025125
+oldkc: 147
+kc: 148
+knew: 269025053
+oldkc: 148
+kc: 149
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 149
+kc: 150
+knew: 269025071
+oldkc: 150
+kc: 151
+knew: 269025067
+oldkc: 151
+kc: 152
+knew: 269025117
+oldkc: 152
+kc: 153
+knew: 269025147
+oldkc: 153
+kc: 154
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 154
+kc: 155
+knew: 269025162
+oldkc: 155
+kc: 156
+knew: 269025089
+oldkc: 156
+kc: 157
+knew: 269025090
+oldkc: 157
+kc: 158
+knew: 269025070
+oldkc: 158
+kc: 159
+knew: 269025114
+oldkc: 159
+kc: 160
+knew: 269025069
+oldkc: 160
+kc: 161
+knew: 269025140
+oldkc: 161
+kc: 162
+knew: 269025151
+oldkc: 162
+kc: 163
+knew: 269025049
+oldkc: 163
+kc: 164
+knew: 269025072
+oldkc: 164
+kc: 165
+knew: 269025075
+oldkc: 165
+kc: 166
+knew: 269025062
+oldkc: 166
+kc: 167
+knew: 269025063
+oldkc: 167
+kc: 168
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 168
+kc: 169
+knew: 269025068
+oldkc: 169
+kc: 170
+knew: 269025068
+oldkc: 169
+Changing keycode changes[169] = 170
+kc: 171
+knew: 269025047
+oldkc: 171
+kc: 172
+knew: 269025044
+oldkc: 172
+kc: 173
+knew: 269025046
+oldkc: 173
+kc: 174
+knew: 269025045
+oldkc: 174
+kc: 175
+knew: 269025052
+oldkc: 175
+kc: 176
+knew: 269025086
+oldkc: 176
+kc: 177
+knew: 269025134
+oldkc: 177
+kc: 178
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 178
+kc: 179
+knew: 269025153
+oldkc: 179
+kc: 180
+knew: 269025048
+oldkc: 180
+kc: 181
+knew: 269025139
+oldkc: 181
+kc: 182
+knew: 269025110
+oldkc: 182
+kc: 183
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 183
+kc: 184
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 184
+kc: 185
+knew: 269025144
+oldkc: 185
+kc: 186
+knew: 269025145
+oldkc: 186
+kc: 187
+knew: 40
+oldkc: 17
+Changing keycode changes[17] = 187
+kc: 188
+knew: 41
+oldkc: 18
+Changing keycode changes[18] = 188
+kc: 189
+knew: 269025128
+oldkc: 189
+kc: 190
+knew: 65382
+oldkc: 137
+Changing keycode changes[137] = 190
+kc: 191
+knew: 269025153
+oldkc: 179
+Changing keycode changes[179] = 191
+kc: 192
+knew: 269025093
+oldkc: 192
+kc: 193
+knew: 269025094
+oldkc: 193
+kc: 194
+knew: 269025095
+oldkc: 194
+kc: 195
+knew: 269025096
+oldkc: 195
+kc: 196
+knew: 269025097
+oldkc: 196
+kc: 197
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 197
+kc: 198
+knew: 269025202
+oldkc: 198
+kc: 199
+knew: 269025193
+oldkc: 199
+kc: 200
+knew: 269025200
+oldkc: 200
+kc: 201
+knew: 269025201
+oldkc: 201
+kc: 202
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 202
+kc: 203
+knew: 65406
+oldkc: 203
+kc: 204
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 204
+kc: 205
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 205
+kc: 206
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 206
+kc: 207
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 207
+kc: 208
+knew: 269025044
+oldkc: 172
+Changing keycode changes[172] = 208
+kc: 209
+knew: 269025073
+oldkc: 172
+Changing keycode changes[172] = 209
+kc: 210
+knew: 269025091
+oldkc: 210
+kc: 211
+knew: 269025092
+oldkc: 211
+kc: 212
+knew: 269025099
+oldkc: 212
+kc: 213
+knew: 269025191
+oldkc: 213
+kc: 214
+knew: 269025110
+oldkc: 182
+Changing keycode changes[182] = 214
+kc: 215
+knew: 269025044
+oldkc: 172
+Changing keycode changes[172] = 215
+kc: 216
+knew: 269025175
+oldkc: 216
+kc: 217
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 217
+kc: 218
+knew: 65377
+oldkc: 107
+Changing keycode changes[107] = 218
+kc: 219
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 219
+kc: 220
+knew: 269025167
+oldkc: 220
+kc: 221
+knew: 269025206
+oldkc: 221
+kc: 222
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 222
+kc: 223
+knew: 269025049
+oldkc: 163
+Changing keycode changes[163] = 223
+kc: 224
+knew: 269025166
+oldkc: 224
+kc: 225
+knew: 269025051
+oldkc: 225
+kc: 226
+knew: 269025119
+oldkc: 226
+kc: 227
+knew: 269025084
+oldkc: 227
+kc: 228
+knew: 269025118
+oldkc: 228
+kc: 229
+knew: 269025078
+oldkc: 229
+kc: 230
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 230
+kc: 231
+knew: 65385
+oldkc: 136
+Changing keycode changes[136] = 231
+kc: 232
+knew: 269025027
+oldkc: 232
+kc: 233
+knew: 269025026
+oldkc: 233
+kc: 234
+knew: 269025074
+oldkc: 234
+kc: 235
+knew: 269025113
+oldkc: 235
+kc: 236
+knew: 269025028
+oldkc: 236
+kc: 237
+knew: 269025030
+oldkc: 237
+kc: 238
+knew: 269025029
+oldkc: 238
+kc: 239
+knew: 269025147
+oldkc: 153
+Changing keycode changes[153] = 239
+kc: 240
+knew: 269025138
+oldkc: 240
+kc: 241
+knew: 269025168
+oldkc: 241
+kc: 242
+knew: 269025143
+oldkc: 242
+kc: 243
+knew: 269025115
+oldkc: 243
+kc: 244
+knew: 269025171
+oldkc: 244
+kc: 245
+knew: 269025172
+oldkc: 245
+kc: 246
+knew: 269025173
+oldkc: 246
+kc: 247
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 247
+kc: 248
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 248
+kc: 249
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 249
+kc: 250
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 250
+kc: 251
+knew: 269025031
+oldkc: 251
+kc: 252
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 252
+kc: 253
+knew: 0
+oldkc: 8
+Changing keycode changes[8] = 253
+kc: 254
+knew: 269025204
+oldkc: 254
+finished range mapping
+regrab
+Leaving update_keyboard_mapping
+         276386821 function calls (273648645 primitive calls) in 154.322 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000  154.322  154.322 <string>:1(<module>)
+ 36623106   32.924    0.000   48.883    0.000 __init__.py:108(unpack)
+        2    0.000    0.000    0.000    0.000 __init__.py:119(cast)
+   342273    0.238    0.000    0.962    0.000 __init__.py:137(__init__)
+   342273    0.471    0.000    0.471    0.000 __init__.py:141(_resize)
+ 40045826   11.487    0.000   11.487    0.000 __init__.py:293(__init__)
+        1    0.000    0.000    0.000    0.000 __init__.py:326(__init__)
+        1    0.000    0.000    0.000    0.000 __init__.py:331(reply)
+        1    0.000    0.000    0.000    0.000 __init__.py:363(send_request)
+3764993/1026817   27.326    0.000  143.114    0.000 __init__.py:412(__init__)
+   170886    0.044    0.000    0.044    0.000 __init__.py:445(__getitem__)
+   684549    0.814    0.000    0.814    0.000 __init__.py:554(invalid)
+   342274    0.582    0.000  150.815    0.000 __init__.py:566(wrapper)
+   342272    0.887    0.000  149.419    0.000 __init__.py:576(get_setup)
+        1    0.000    0.000    0.000    0.000 __init__.py:643(_process_error)
+        1    0.000    0.000    0.000    0.000 __init__.py:650(wait_for_reply)
+   684544    0.358    0.000    0.358    0.000 __init__.py:68(type_pad)
+        1    0.000    0.000    0.000    0.000 __init__.py:696(send_request)
+        1    0.000    0.000    0.000    0.000 __init__.py:711(__init__)
+        1    0.000    0.000    0.000    0.000 __init__.py:732(__init__)
+   342273    0.254    0.000    0.725    0.000 __init__.py:90(__init__)
+   684544    0.884    0.000    1.819    0.000 __init__.py:97(pad)
+      792    0.002    0.000    0.010    0.000 debug.py:5(debug)
+   171136    3.026    0.000  153.879    0.001 keybind.py:146(get_min_max_keycode)
+        1    0.000    0.000    0.001    0.001 keybind.py:160(get_keyboard_mapping)
+   170886    0.245    0.000  153.941    0.001 keybind.py:182(get_keysym)
+      247    0.142    0.001  154.076    0.624 keybind.py:229(get_keycode)
+        1    0.003    0.003  154.322  154.322 keybind.py:416(update_keyboard_mapping)
+        1    0.000    0.000    0.000    0.000 keybind.py:500(__regrab)
+        1    0.000    0.000    0.000    0.000 keybind_prof.py:11(__init__)
+ 30804480   39.268    0.000   91.784    0.000 xproto.py:116(__init__)
+  2395904    4.541    0.000  125.586    0.000 xproto.py:140(__init__)
+   342272    0.981    0.000  130.094    0.000 xproto.py:192(__init__)
+        1    0.000    0.000    0.000    0.000 xproto.py:2354(__init__)
+   342272    1.729    0.000  147.569    0.000 xproto.py:303(__init__)
+        1    0.000    0.000    0.000    0.000 xproto.py:3209(GetKeyboardMapping)
+  2395904    2.889    0.000    7.041    0.000 xproto.py:89(__init__)
+ 36623106    6.450    0.000    6.450    0.000 {built-in method _struct.calcsize}
+        1    0.000    0.000    0.000    0.000 {built-in method _struct.pack}
+ 36623106    9.510    0.000    9.510    0.000 {built-in method _struct.unpack_from}
+        1    0.000    0.000  154.322  154.322 {built-in method builtins.exec}
+   684544    0.374    0.000    0.374    0.000 {built-in method builtins.hasattr}
+ 41072643    4.939    0.000    4.939    0.000 {built-in method builtins.isinstance}
+   684545    0.124    0.000    0.124    0.000 {built-in method builtins.issubclass}
+  3764996    0.500    0.000    0.500    0.000 {built-in method builtins.len}
+      792    0.007    0.000    0.007    0.000 {built-in method builtins.print}
+ 35938560    3.323    0.000    3.323    0.000 {method 'append' of 'list' objects}
+        3    0.000    0.000    0.000    0.000 {method 'cast' of '_cffi_backend.FFI' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+      792    0.001    0.000    0.001    0.000 {method 'flush' of '_io.TextIOWrapper' objects}
+        1    0.000    0.000    0.000    0.000 {method 'gc' of '_cffi_backend.FFI' objects}
+        1    0.000    0.000    0.000    0.000 {method 'getvalue' of '_io.BytesIO' objects}
+        1    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+        4    0.000    0.000    0.000    0.000 {method 'new' of '_cffi_backend.FFI' objects}
+        1    0.000    0.000    0.000    0.000 {method 'write' of '_io.BytesIO' objects}

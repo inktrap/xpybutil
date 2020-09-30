@@ -441,12 +441,12 @@ def update_keyboard_mapping(e):
         __keysmods = get_keys_to_mods()
         return
 
-
     if e.request == xproto.Mapping.Keyboard:
         debug("If")
+        # debug(dir(e))
         changes = {}
         debug("Minmaxkeycode: (%i, %i)" % get_min_max_keycode())
-        return
+        # return
         for kc in range(*get_min_max_keycode()):
             knew = get_keysym(kc, kbmap=newmap)
             oldkc = get_keycode(knew)
