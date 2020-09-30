@@ -36,6 +36,8 @@ from xpybutil.compat import xproto
 from xpybutil import conn
 import xpybutil.ewmh as ewmh
 
+from xpybutil.debug import debug
+
 class WindowManagers(object):
     """
     A list of window managers that xpybutil is aware of.
@@ -136,6 +138,15 @@ def moveresize(win, x=None, y=None, w=None, h=None, window_manager=None):
         w -= pw - cw
         h -= ph - ch
 
+    # sometimes these are floats, but xcffib only accepts ints
+    # could this be the case because "/" changed?
+    for i in [x, y, w, h]:
+        debug(i)
+        debug(type(i))
+    x = int(x)
+    y = int(y)
+    w = int(w)
+    h = int(h)
     ewmh.request_moveresize_window(win, x=x, y=y, width=max(1, w),
                                    height=max(1, h), source=2)
 

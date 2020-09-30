@@ -149,7 +149,12 @@ def get_min_max_keycode():
 
     :rtype: (int, int)
     """
-    return conn.get_setup().min_keycode, conn.get_setup().max_keycode
+    this_min = conn.get_setup().min_keycode
+    this_max = conn.get_setup().max_keycode
+    assert isinstance(this_min, int)
+    assert isinstance(this_max, int)
+    return this_min, this_max
+    # return conn.get_setup().min_keycode, conn.get_setup().max_keycode
 
 def get_keyboard_mapping():
     """
