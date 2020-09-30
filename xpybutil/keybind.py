@@ -441,7 +441,6 @@ def update_keyboard_mapping(e):
         __keysmods = get_keys_to_mods()
         return
 
-    debug("Did some stuff")
 
     if e.request == xproto.Mapping.Keyboard:
         debug("If")
@@ -449,16 +448,15 @@ def update_keyboard_mapping(e):
         debug("Minmaxkeycode: (%i, %i)" % get_min_max_keycode())
         return
         for kc in range(*get_min_max_keycode()):
-            debug("kc: %s" % kc)
-
             knew = get_keysym(kc, kbmap=newmap)
-            debug("knew: %s" % knew)
-
             oldkc = get_keycode(knew)
+
+            debug("kc: %s" % kc)
+            debug("knew: %s" % knew)
             debug("oldkc: %s" % oldkc)
+            # debug("Debugging types: (%s, %s)" % (type(kc), type(oldkc)))
 
             # kc == oldkc
-            # debug("Debugging types: (%s, %s)" % (type(kc), type(oldkc)))
             if oldkc != kc:
                 debug("Changing keycode changes[%s] = %s" % (oldkc, kc))
                 changes[oldkc] = kc
