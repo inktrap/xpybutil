@@ -17,6 +17,8 @@ xpybutil is compatible with xpyb and its various drop-in replacements (xcffib, x
 there are several choices, it is up to you to choose and install one.
 [xcffib](https://github.com/tych0/xcffib) is the most actively maintained option.
 
+**Edit:** Install it [from git](https://github.com/inktrap/pytyle3/blob/master/INSTALL.md#requirements) as a requirement for ``pytyle3``.
+
 To install xpybutil from pip with xcffib:
 ```bash
 pip install xcffib xpybutil
