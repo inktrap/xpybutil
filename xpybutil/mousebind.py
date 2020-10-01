@@ -16,7 +16,7 @@ from xpybutil.compat import xproto
 from xpybutil import conn, root
 
 __mousebinds = defaultdict(list)
-__mousegrabs = defaultdict(int) # Mouse grab key -> number of grabs
+__mousegrabs = defaultdict(int)  # Mouse grab key -> number of grabs
 
 EM = xproto.EventMask
 GM = xproto.GrabMode
@@ -24,8 +24,9 @@ TRIVIAL_MODS = [
     0,
     xproto.ModMask.Lock,
     xproto.ModMask._2,
-    xproto.ModMask.Lock | xproto.ModMask._2
+    xproto.ModMask.Lock | xproto.ModMask._2,
 ]
+
 
 def parse_buttonstring(button_string):
     """
@@ -42,13 +43,14 @@ def parse_buttonstring(button_string):
     :rtype: (mask, int)
     """
     mods, button = 0, None
-    for part in button_string.split('-'):
+    for part in button_string.split("-"):
         if hasattr(xproto.KeyButMask, part):
             mods |= getattr(xproto.KeyButMask, part)
         else:
             button = int(part)
 
     return mods, button
+
 
 def grab_pointer(grab_win, confine, cursor):
     """
@@ -64,9 +66,17 @@ def grab_pointer(grab_win, confine, cursor):
     :rtype: xcb.xproto.GrabStatus
     """
     mask = EM.PointerMotion | EM.ButtonRelease | EM.ButtonPress
-    return conn.core.GrabPointer(False, grab_win, mask, GM.Async, GM.Async,
-                                 confine, cursor,
-                                 xproto.Time.CurrentTime).reply()
+    return conn.core.GrabPointer(
+        False,
+        grab_win,
+        mask,
+        GM.Async,
+        GM.Async,
+        confine,
+        cursor,
+        xproto.Time.CurrentTime,
+    ).reply()
+
 
 def ungrab_pointer():
     """
@@ -75,6 +85,7 @@ def ungrab_pointer():
     :rtype: void
     """
     conn.core.UngrabPointerChecked(xproto.Time.CurrentTime).check()
+
 
 def grab_button(wid, modifiers, button, propagate=False):
     """
@@ -112,14 +123,22 @@ def grab_button(wid, modifiers, button, propagate=False):
 
     try:
         for mod in TRIVIAL_MODS:
-            conn.core.GrabButtonChecked(True, wid, mask,
-                                        GM.Sync if propagate else GM.Async,
-                                        GM.Async, 0, 0,
-                                        button, modifiers | mod).check()
+            conn.core.GrabButtonChecked(
+                True,
+                wid,
+                mask,
+                GM.Sync if propagate else GM.Async,
+                GM.Async,
+                0,
+                0,
+                button,
+                modifiers | mod,
+            ).check()
 
         return True
     except xproto.BadAccess:
         return False
+
 
 def ungrab_button(wid, modifiers, button):
     """
@@ -145,6 +164,7 @@ def ungrab_button(wid, modifiers, button):
     except xproto.BadAccess:
         return False
 
+
 def bind_global_mouse(event_type, key_string, cb):
     """
     An alias for ``bind_mouse(event_type, ROOT_WINDOW, key_string, cb)``.
@@ -162,6 +182,6 @@ def bind_global_mouse(event_type, key_string, cb):
     """
     return bind_mouse(event_type, root, key_string, cb)
 
+
 def bind_mouse(event_type, wid, button_string, cb):
     raise NotImplemented
-

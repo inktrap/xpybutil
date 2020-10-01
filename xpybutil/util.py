@@ -13,6 +13,7 @@ from xpybutil import conn
 __atom_cache = {}
 __atom_nm_cache = {}
 
+
 class Cookie(object):
     """
     The base Cookie class. The role of a cookie is to serve as an intermediary
@@ -23,19 +24,23 @@ class Cookie(object):
     icccm modules. (Alternatively, you could flush the X buffer using
     ``conn_obj.flush()``.)
     """
+
     def __init__(self, cookie):
         self.cookie = cookie
 
     def check(self):
         return self.cookie.check()
 
+
 class PropertyCookie(Cookie):
     """
     A regular property cookie that uses 'get_property_value' to return a nicer
     version to you. (Instead of raw X data.)
     """
+
     def reply(self):
         return get_property_value(self.cookie.reply())
+
 
 class PropertyCookieSingle(Cookie):
     """
@@ -43,6 +48,7 @@ class PropertyCookieSingle(Cookie):
     result. Namely, 'get_property_value' will be stupid and return a single
     list. This class checks for that, and takes the head of that list.
     """
+
     def reply(self):
         ret = get_property_value(self.cookie.reply())
 
@@ -50,20 +56,25 @@ class PropertyCookieSingle(Cookie):
             return ret[0]
         return ret
 
+
 class AtomCookie(Cookie):
     """
     Pulls the ATOM identifier out of the reply object.
     """
+
     def reply(self):
         return self.cookie.reply().atom
+
 
 class AtomNameCookie(Cookie):
     """
     Converts the null terminated list of characters (that represents an
     ATOM name) to a string.
     """
+
     def reply(self):
-        return bytes(self.cookie.reply().name.buf()).decode('utf-8')
+        return bytes(self.cookie.reply().name.buf()).decode("utf-8")
+
 
 def get_property_value(property_reply):
     """
@@ -85,15 +96,18 @@ def get_property_value(property_reply):
              upon the format of the property reply.
     """
     if property_reply.format == 8:
-        ret = bytes(property_reply.value.buf()).split(b'\0')
-        if ret[-1] == '': ret.pop()
-        ret = [ x.decode('utf-8') for x in ret ]
+        ret = bytes(property_reply.value.buf()).split(b"\0")
+        if ret[-1] == "":
+            ret.pop()
+        ret = [x.decode("utf-8") for x in ret]
         return ret[0] if len(ret) == 1 else ret
     elif property_reply.format in (16, 32):
-        return list(struct.unpack('I' * property_reply.value_len,
-                                  property_reply.value.buf()))
+        return list(
+            struct.unpack("I" * property_reply.value_len, property_reply.value.buf())
+        )
 
     return None
+
 
 def get_property(window, atom):
     """
@@ -112,9 +126,10 @@ def get_property(window, atom):
     stringtype = str if sys.version_info[0] >= 3 else str
     if isinstance(atom, stringtype):
         atom = get_atom(atom)
-    return conn.core.GetProperty(False, window, atom,
-                                 xproto.GetPropertyType.Any, 0,
-                                 2 ** 32 - 1)
+    return conn.core.GetProperty(
+        False, window, atom, xproto.GetPropertyType.Any, 0, 2 ** 32 - 1
+    )
+
 
 def get_property_unchecked(window, atom):
     """
@@ -133,9 +148,10 @@ def get_property_unchecked(window, atom):
     stringtype = str if sys.version_info[0] >= 3 else str
     if isinstance(atom, stringtype):
         atom = get_atom(atom)
-    return conn.core.GetPropertyUnchecked(False, window, atom,
-                                          xproto.GetPropertyType.Any, 0,
-                                          2 ** 32 - 1)
+    return conn.core.GetPropertyUnchecked(
+        False, window, atom, xproto.GetPropertyType.Any, 0, 2 ** 32 - 1
+    )
+
 
 def build_atom_cache(atoms):
     """
@@ -162,6 +178,7 @@ def build_atom_cache(atoms):
 
     __atom_nm_cache = dict((v, k) for k, v in list(__atom_cache.items()))
 
+
 def get_atom(atom_name, only_if_exists=False):
     """
     Queries the X server for an ATOM identifier using a name. If we've already
@@ -181,13 +198,14 @@ def get_atom(atom_name, only_if_exists=False):
     """
     global __atom_cache
 
-    a = __atom_cache.setdefault(atom_name,
-                                __get_atom_cookie(atom_name,
-                                                  only_if_exists).reply())
+    a = __atom_cache.setdefault(
+        atom_name, __get_atom_cookie(atom_name, only_if_exists).reply()
+    )
     if isinstance(a, AtomCookie):
         a = a.reply()
 
     return a
+
 
 def get_atom_name(atom):
     """
@@ -210,6 +228,7 @@ def get_atom_name(atom):
 
     return a
 
+
 def __get_atom_cookie(atom_name, only_if_exists=False):
     """
     Private function that issues the xpyb call to intern an atom.
@@ -218,10 +237,10 @@ def __get_atom_cookie(atom_name, only_if_exists=False):
     :type only_if_exists: bool
     :rtype: xcb.xproto.InternAtomCookie
     """
-    atom_bytes = atom_name.encode('ascii')
-    atom = conn.core.InternAtomUnchecked(only_if_exists, len(atom_bytes),
-                                         atom_bytes)
+    atom_bytes = atom_name.encode("ascii")
+    atom = conn.core.InternAtomUnchecked(only_if_exists, len(atom_bytes), atom_bytes)
     return AtomCookie(atom)
+
 
 def __get_atom_name_cookie(atom):
     """
@@ -231,4 +250,3 @@ def __get_atom_name_cookie(atom):
     :rtype: xcb.xproto.GetAtomNameCookie
     """
     return AtomNameCookie(conn.core.GetAtomNameUnchecked(atom))
-

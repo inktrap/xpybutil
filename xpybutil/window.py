@@ -38,6 +38,7 @@ import xpybutil.ewmh as ewmh
 
 from xpybutil.debug import debug
 
+
 class WindowManagers(object):
     """
     A list of window managers that xpybutil is aware of.
@@ -48,9 +49,11 @@ class WindowManagers(object):
 
     I am not sure whether I have plans to expand this list.
     """
+
     Unknown = 0
     Openbox = 1
     KWin = 2
+
 
 def listen(window, *event_mask_names):
     """
@@ -73,8 +76,10 @@ def listen(window, *event_mask_names):
         assert hasattr(xproto.EventMask, mask_name)
         masks |= getattr(xproto.EventMask, mask_name)
 
-    conn.core.ChangeWindowAttributesChecked(window, xproto.CW.EventMask,
-                                            [masks]).check()
+    conn.core.ChangeWindowAttributesChecked(
+        window, xproto.CW.EventMask, [masks]
+    ).check()
+
 
 def get_parent_window(window):
     """
@@ -88,6 +93,7 @@ def get_parent_window(window):
     assert isinstance(parent_window, int)
     return parent_window
     # return conn.core.QueryTree(window).reply().parent
+
 
 def get_geometry(window, window_manager=None):
     """
@@ -114,6 +120,7 @@ def get_geometry(window, window_manager=None):
         # return __get_geometry(get_parent_window(window))
     debug("Geom xpybutil: %s" % str(geom))
     return geom
+
 
 def moveresize(win, x=None, y=None, w=None, h=None, window_manager=None):
     """
@@ -154,8 +161,10 @@ def moveresize(win, x=None, y=None, w=None, h=None, window_manager=None):
     y = int(y)
     w = int(w)
     h = int(h)
-    ewmh.request_moveresize_window(win, x=x, y=y, width=max(1, w),
-                                   height=max(1, h), source=2)
+    ewmh.request_moveresize_window(
+        win, x=x, y=y, width=max(1, w), height=max(1, h), source=2
+    )
+
 
 def __get_geometry(win):
     """
@@ -170,4 +179,3 @@ def __get_geometry(win):
     """
     raw = conn.core.GetGeometry(win).reply()
     return raw.x, raw.y, raw.width, raw.height
-

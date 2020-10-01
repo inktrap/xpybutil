@@ -1,4 +1,3 @@
-
 import sys
 
 from setuptools import setup
@@ -6,11 +5,17 @@ from setuptools import setup
 try:
     from xpybutil.compat import xproto, xinerama, randr
 except:
-    print('')
-    print('xpybutil requires the X Python Binding')
-    print('See: http://cgit.freedesktop.org/xcb/xpyb/')
-    print(('More options: xpyb-ng:', 'https://github.com/dequis/xpyb-ng',
-          'and xcffib:', 'https://github.com/tych0/xcffib'))
+    print("")
+    print("xpybutil requires the X Python Binding")
+    print("See: http://cgit.freedesktop.org/xcb/xpyb/")
+    print(
+        (
+            "More options: xpyb-ng:",
+            "https://github.com/dequis/xpyb-ng",
+            "and xcffib:",
+            "https://github.com/tych0/xcffib",
+        )
+    )
     sys.exit(1)
 
 setup(
@@ -22,7 +27,7 @@ setup(
     description="An incomplete xcb-util port plus some extras",
     long_description="See README",
     url="http://github.com/BurntSushi/xpybutil",
-    platforms='POSIX',
-    packages=['xpybutil'],
-    data_files=[('share/doc/xpybutil', ['README.md', 'COPYING'])]
+    platforms="POSIX",
+    packages=["xpybutil"],
+    data_files=[("share/doc/xpybutil", ["README.md", "COPYING"])],
 )

@@ -6,8 +6,10 @@ ChangeWindowAttributes.
 """
 from xpybutil import conn
 
+
 class FontCursor:
     """Constants for all X cursors. To be used in ``create_font_cursor``."""
+
     XCursor = 0
     Arrow = 2
     BasedArrowDown = 4
@@ -86,8 +88,16 @@ class FontCursor:
     Watch = 150
     XTerm = 152
 
-def create_font_cursor(cursor_id, fore_red=0, fore_green=0, fore_blue=0,
-                       back_red=0xffff, back_green=0xffff, back_blue=0xffff):
+
+def create_font_cursor(
+    cursor_id,
+    fore_red=0,
+    fore_green=0,
+    fore_blue=0,
+    back_red=0xFFFF,
+    back_green=0xFFFF,
+    back_blue=0xFFFF,
+):
     """
     Function to create cursor resources on the X server. You can use the
     return value of this function with mousebind.grab_pointer to make the
@@ -109,12 +119,20 @@ def create_font_cursor(cursor_id, fore_red=0, fore_green=0, fore_blue=0,
     font = conn.generate_id()
     cursor = conn.generate_id()
 
-    conn.core.OpenFontChecked(font, len('cursor'), 'cursor').check()
-    conn.core.CreateGlyphCursorChecked(cursor, font, font, cursor_id,
-                                       cursor_id + 1, fore_red, fore_green,
-                                       fore_blue, back_red, back_green,
-                                       back_blue).check()
+    conn.core.OpenFontChecked(font, len("cursor"), "cursor").check()
+    conn.core.CreateGlyphCursorChecked(
+        cursor,
+        font,
+        font,
+        cursor_id,
+        cursor_id + 1,
+        fore_red,
+        fore_green,
+        fore_blue,
+        back_red,
+        back_green,
+        back_blue,
+    ).check()
     conn.core.CloseFont(font)
 
     return cursor
-

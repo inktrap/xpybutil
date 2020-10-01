@@ -19,6 +19,7 @@ EM = xproto.EventMask
 
 stringtype = str if sys.version_info[0] >= 3 else str
 
+
 class Event(object):
     KeyPressEvent = 2
     KeyReleaseEvent = 3
@@ -54,15 +55,20 @@ class Event(object):
     ClientMessageEvent = 33
     MappingNotifyEvent = 34
 
+
 def replay_pointer():
-    conn.core.AllowEventsChecked(xproto.Allow.ReplayPointer,
-                                 xproto.Time.CurrentTime).check()
+    conn.core.AllowEventsChecked(
+        xproto.Allow.ReplayPointer, xproto.Time.CurrentTime
+    ).check()
+
 
 def send_event(destination, event_mask, event, propagate=False):
     return conn.core.SendEvent(propagate, destination, event_mask, event)
 
+
 def send_event_checked(destination, event_mask, event, propagate=False):
     return conn.core.SendEventChecked(propagate, destination, event_mask, event)
+
 
 def pack_client_message(window, message_type, *data):
     assert len(data) <= 5
@@ -75,40 +81,47 @@ def pack_client_message(window, message_type, *data):
 
     # Taken from
     # http://xcb.freedesktop.org/manual/structxcb__client__message__event__t.html
-    return struct.pack('BBH7I', Event.ClientMessageEvent, 32, 0, window,
-                       message_type, *data)
+    return struct.pack(
+        "BBH7I", Event.ClientMessageEvent, 32, 0, window, message_type, *data
+    )
+
 
 def root_send_client_event(window, message_type, *data):
     mask = EM.SubstructureNotify | EM.SubstructureRedirect
     packed = pack_client_message(window, message_type, *data)
     return send_event(root, mask, packed)
 
+
 def root_send_client_event_checked(window, message_type, *data):
     mask = EM.SubstructureNotify | EM.SubstructureRedirect
     packed = pack_client_message(window, message_type, *data)
     return send_event_checked(root, mask, packed)
 
+
 def is_connected(event_name, window, callback):
-    member = '%sEvent' % event_name
+    member = "%sEvent" % event_name
     assert hasattr(xproto, member)
 
     key = (getattr(xproto, member), window)
     return key in __callbacks and callback in __callbacks[key]
 
+
 def connect(event_name, window, callback):
-    member = '%sEvent' % event_name
+    member = "%sEvent" % event_name
     assert hasattr(xproto, member)
 
     key = (getattr(xproto, member), window)
     __callbacks[key].append(callback)
 
+
 def disconnect(event_name, window):
-    member = '%sEvent' % event_name
+    member = "%sEvent" % event_name
     assert hasattr(xproto, member)
 
     key = (getattr(xproto, member), window)
     if key in __callbacks:
         del __callbacks[key]
+
 
 def read(block=False):
     if block:
@@ -123,6 +136,7 @@ def read(block=False):
 
         __queue.appendleft(e)
 
+
 def main():
     try:
         while True:
@@ -135,13 +149,13 @@ def main():
                     # Force all MapRequestEvents to go to the root window so
                     # a window manager using xpybutil can get them.
                     w = root
-                elif hasattr(e, 'window'):
+                elif hasattr(e, "window"):
                     w = e.window
-                elif hasattr(e, 'event'):
+                elif hasattr(e, "event"):
                     w = e.event
-                elif hasattr(e, 'owner'):
+                elif hasattr(e, "owner"):
                     w = e.owner
-                elif hasattr(e, 'requestor'):
+                elif hasattr(e, "requestor"):
                     w = e.requestor
 
                 key = (e.__class__, w)
@@ -152,10 +166,11 @@ def main():
         traceback.print_exc()
         sys.exit(1)
 
+
 def queue():
     while len(__queue):
         yield __queue.pop()
 
+
 def peek():
     return list(__queue)
-

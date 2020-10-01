@@ -16,13 +16,14 @@ ext = None
 if conn is not None:
     ext = conn(xinerama.key)
 
+
 def get_monitors():
-    '''
+    """
     Returns a list of Xinerama screen rectangles.
     They come in the order that the Xinerama extension specifies.
 
     :rtype: List of (x, y, w, h) rectangles
-    '''
+    """
     retval = []
     ms = ext.QueryScreens().reply()
     if ms:
@@ -31,14 +32,15 @@ def get_monitors():
 
     return retval
 
+
 def get_physical_mapping(monitors):
-    '''
+    """
     Returns a list of Xinerama screen indices in their physical order.
     Where physical order is defined as left-to-right and then top-to-bottom.
 
     :param monitors:  List of (x, y, w, h) rectangles
     :rtype:           List of Xinerama indices
-    '''
+    """
     retval = []
 
     tosort = []
@@ -48,4 +50,3 @@ def get_physical_mapping(monitors):
         retval.append(xscreen)
 
     return retval
-

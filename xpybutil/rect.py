@@ -10,6 +10,7 @@ from xpybutil.compat import xproto
 import xpybutil.ewmh as ewmh
 import xpybutil.window as window
 
+
 def rect_intersect_area(r1, r2):
     """
     Returns the area of the intersection of two rectangles. If the rectangles
@@ -33,6 +34,7 @@ def rect_intersect_area(r1, r2):
 
     return 0
 
+
 def get_monitor_area(search, monitors):
     """
     Returns the monitor with the most overlap with the 'search' rectangle.
@@ -53,6 +55,7 @@ def get_monitor_area(search, monitors):
 
     return mon
 
+
 def monitor_rects(monitors):
     """
     Takes a list of monitors returned by ``xinerama.get_monitors`` and returns
@@ -64,12 +67,12 @@ def monitor_rects(monitors):
              subtracting strut areas.
     :rtype: [(top_left_x, top_left_y, width, height)]
     """
-    mons = monitors # alias
+    mons = monitors  # alias
     wa = mons[:]
 
     clients = ewmh.get_client_list().reply()
 
-    log = [] # Identical struts should be ignored
+    log = []  # Identical struts should be ignored
 
     for c in clients:
         try:
@@ -89,12 +92,12 @@ def monitor_rects(monitors):
                 log.append(key)
 
                 if struts and not all([v == 0 for v in struts.values()]):
-                    if struts['left'] or struts['right']:
-                        if struts['left']:
+                    if struts["left"] or struts["right"]:
+                        if struts["left"]:
                             x += cw
                         w -= cw
-                    if struts['top'] or struts['bottom']:
-                        if struts['top']:
+                    if struts["top"] or struts["bottom"]:
+                        if struts["top"]:
                             y += ch
                         h -= ch
                 elif struts:
@@ -113,4 +116,3 @@ def monitor_rects(monitors):
                 wa[i] = (x, y, w, h)
 
     return wa
-

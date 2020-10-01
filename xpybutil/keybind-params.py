@@ -28,8 +28,9 @@ TRIVIAL_MODS = [
     0,
     xproto.ModMask.Lock,
     xproto.ModMask._2,
-    xproto.ModMask.Lock | xproto.ModMask._2
+    xproto.ModMask.Lock | xproto.ModMask._2,
 ]
+
 
 def bind_global_key(event_type, key_string, cb):
     """
@@ -47,6 +48,7 @@ def bind_global_key(event_type, key_string, cb):
     :rtype: bool
     """
     return bind_key(event_type, root, key_string, cb)
+
 
 def bind_key(event_type, wid, key_string, cb):
     """
@@ -71,13 +73,13 @@ def bind_key(event_type, wid, key_string, cb):
     :return: True if the binding was successful, False otherwise.
     :rtype: bool
     """
-    assert event_type in ('KeyPress', 'KeyRelease')
+    assert event_type in ("KeyPress", "KeyRelease")
 
     mods, kc = parse_keystring(key_string)
     key = (wid, mods, kc)
 
     if not kc:
-        print('Could not find a keycode for %s' % key_string, file=sys.stderr)
+        print("Could not find a keycode for %s" % key_string, file=sys.stderr)
         return False
 
     if not __keygrabs[key] and not grab_key(wid, mods, kc):
@@ -90,6 +92,7 @@ def bind_key(event_type, wid, key_string, cb):
         event.connect(event_type, wid, __run_keybind_callbacks)
 
     return True
+
 
 def parse_keystring(key_string):
     """
@@ -108,7 +111,7 @@ def parse_keystring(key_string):
     modifiers = 0
     keycode = None
 
-    for part in key_string.split('-'):
+    for part in key_string.split("-"):
         if hasattr(xproto.KeyButMask, part):
             modifiers |= getattr(xproto.KeyButMask, part)
         else:
@@ -117,6 +120,7 @@ def parse_keystring(key_string):
             keycode = lookup_string(part)
 
     return modifiers, keycode
+
 
 def lookup_string(kstr):
     """
@@ -133,6 +137,7 @@ def lookup_string(kstr):
 
     return None
 
+
 def lookup_keysym(keysym):
     """
     Finds the english string associated with a keysym.
@@ -142,6 +147,7 @@ def lookup_keysym(keysym):
     :rtype: str
     """
     return get_keysym_string(keysym)
+
 
 def get_min_max_keycode():
     """
@@ -157,6 +163,7 @@ def get_min_max_keycode():
     return this_min, this_max
     # return conn.get_setup().min_keycode, conn.get_setup().max_keycode
 
+
 def get_keyboard_mapping():
     """
     Return a keyboard mapping cookie that can be used to fetch the table of
@@ -168,6 +175,7 @@ def get_keyboard_mapping():
 
     return conn.core.GetKeyboardMapping(mn, mx - mn + 1)
 
+
 def get_keyboard_mapping_unchecked():
     """
     Return an unchecked keyboard mapping cookie that can be used to fetch the
@@ -178,6 +186,7 @@ def get_keyboard_mapping_unchecked():
     mn, mx = get_min_max_keycode()
 
     return conn.core.GetKeyboardMappingUnchecked(mn, mx - mn + 1)
+
 
 def get_keysym(keycode, col=0, kbmap=None, mn=None, mx=None):
     """
@@ -217,6 +226,7 @@ def get_keysym(keycode, col=0, kbmap=None, mn=None, mx=None):
 
     return kbmap.keysyms[ind]
 
+
 def get_keysym_string(keysym):
     """
     A simple wrapper to find the english string associated with a particular
@@ -226,6 +236,7 @@ def get_keysym_string(keysym):
     :rtype: str
     """
     return keysym_strings.get(keysym, [None])[0]
+
 
 def get_keycode(keysym):
     """
@@ -247,6 +258,7 @@ def get_keycode(keysym):
 
     return None
 
+
 def get_mod_for_key(keycode):
     """
     Finds the modifier that is mapped to the given keycode.
@@ -257,6 +269,7 @@ def get_mod_for_key(keycode):
     :rtype: xcb.xproto.ModMask
     """
     return __keysmods.get(keycode, 0)
+
 
 def get_keys_to_mods():
     """
@@ -282,8 +295,16 @@ def get_keys_to_mods():
     :rtype: dict
     """
     mm = xproto.ModMask
-    modmasks = [mm.Shift, mm.Lock, mm.Control,
-                mm._1, mm._2, mm._3, mm._4, mm._5] # order matters
+    modmasks = [
+        mm.Shift,
+        mm.Lock,
+        mm.Control,
+        mm._1,
+        mm._2,
+        mm._3,
+        mm._4,
+        mm._5,
+    ]  # order matters
 
     mods = conn.core.GetModifierMapping().reply()
 
@@ -291,10 +312,11 @@ def get_keys_to_mods():
     keyspermod = mods.keycodes_per_modifier
     for mmi in range(0, len(modmasks)):
         row = mmi * keyspermod
-        for kc in mods.keycodes[row:row + keyspermod]:
+        for kc in mods.keycodes[row : row + keyspermod]:
             res[kc] = modmasks[mmi]
 
     return res
+
 
 def get_modifiers(state):
     """
@@ -309,33 +331,34 @@ def get_modifiers(state):
     ret = []
 
     if state & xproto.ModMask.Shift:
-        ret.append('Shift')
+        ret.append("Shift")
     if state & xproto.ModMask.Lock:
-        ret.append('Lock')
+        ret.append("Lock")
     if state & xproto.ModMask.Control:
-        ret.append('Control')
+        ret.append("Control")
     if state & xproto.ModMask._1:
-        ret.append('Mod1')
+        ret.append("Mod1")
     if state & xproto.ModMask._2:
-        ret.append('Mod2')
+        ret.append("Mod2")
     if state & xproto.ModMask._3:
-        ret.append('Mod3')
+        ret.append("Mod3")
     if state & xproto.ModMask._4:
-        ret.append('Mod4')
+        ret.append("Mod4")
     if state & xproto.ModMask._5:
-        ret.append('Mod5')
+        ret.append("Mod5")
     if state & xproto.KeyButMask.Button1:
-        ret.append('Button1')
+        ret.append("Button1")
     if state & xproto.KeyButMask.Button2:
-        ret.append('Button2')
+        ret.append("Button2")
     if state & xproto.KeyButMask.Button3:
-        ret.append('Button3')
+        ret.append("Button3")
     if state & xproto.KeyButMask.Button4:
-        ret.append('Button4')
+        ret.append("Button4")
     if state & xproto.KeyButMask.Button5:
-        ret.append('Button5')
+        ret.append("Button5")
 
     return ret
+
 
 def grab_keyboard(grab_win):
     """
@@ -348,8 +371,10 @@ def grab_keyboard(grab_win):
     :type grab_win: int
     :rtype: xcb.xproto.GrabStatus
     """
-    return conn.core.GrabKeyboard(False, grab_win, xproto.Time.CurrentTime,
-                                  GM.Async, GM.Async).reply()
+    return conn.core.GrabKeyboard(
+        False, grab_win, xproto.Time.CurrentTime, GM.Async, GM.Async
+    ).reply()
+
 
 def ungrab_keyboard():
     """
@@ -358,6 +383,7 @@ def ungrab_keyboard():
     :rtype: void
     """
     conn.core.UngrabKeyboardChecked(xproto.Time.CurrentTime).check()
+
 
 def grab_key(wid, modifiers, key):
     """
@@ -383,12 +409,14 @@ def grab_key(wid, modifiers, key):
     """
     try:
         for mod in TRIVIAL_MODS:
-            conn.core.GrabKeyChecked(True, wid, modifiers | mod, key, GM.Async,
-                                     GM.Async).check()
+            conn.core.GrabKeyChecked(
+                True, wid, modifiers | mod, key, GM.Async, GM.Async
+            ).check()
 
         return True
     except xproto.BadAccess:
         return False
+
 
 def ungrab_key(wid, modifiers, key):
     """
@@ -413,6 +441,7 @@ def ungrab_key(wid, modifiers, key):
         return True
     except xproto.BadAccess:
         return False
+
 
 def update_keyboard_mapping(e):
     """
@@ -475,6 +504,7 @@ def update_keyboard_mapping(e):
 
     debug("Leaving update_keyboard_mapping")
 
+
 def __run_keybind_callbacks(e):
     """
     A private function that intercepts all key press/release events, and runs
@@ -499,6 +529,7 @@ def __run_keybind_callbacks(e):
         except TypeError:
             cb()
 
+
 def __regrab(changes):
     """
     Takes a dictionary of changes (mapping old keycode to new keycode) and
@@ -518,7 +549,7 @@ def __regrab(changes):
             __keybinds[new] = __keybinds[old]
             del __keybinds[old]
 
+
 if conn is not None:
     update_keyboard_mapping(None)
-    event.connect('MappingNotify', None, update_keyboard_mapping)
-
+    event.connect("MappingNotify", None, update_keyboard_mapping)

@@ -7,7 +7,8 @@ from xpybutil.compat import xproto
 # cProfile.run('update_keyboard_mapping(None)')
 # e = xproto.MappingNotifyEvent()
 
-class E():
+
+class E:
     def __init__(self):
         self.response_type = 34
         self.sequence = 882
@@ -16,6 +17,5 @@ class E():
         self.count = 1
         self.bufsize = 8
 
-cProfile.run('update_keyboard_mapping(E())')
 
-
+cProfile.run("update_keyboard_mapping(E())")
